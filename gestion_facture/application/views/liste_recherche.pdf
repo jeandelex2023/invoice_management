@@ -1,0 +1,52 @@
+<html>
+<head>
+     <meta charset="utf-8"/>
+   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+   <link rel="stylesheet" type="text/css" href="css/sb-admin-2.css">
+   <link rel="stylesheet" type="text/css" href="css/timeline.css">
+   <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.css">
+   <link rel="stylesheet" type="text/css" href="text.css">
+   <link href="<?php echo base_url(); ?>assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all" />
+   <link href="<?php echo base_url(); ?>assets/css/sb-admin-2.css" rel="stylesheet" type="text/css" media="all" />
+
+   <link href="<?php echo base_url(); ?>assets/css/timeline.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="<?php echo base_url(); ?>assets/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css" media="all" />
+     <link href="<?php echo base_url(); ?>assets/text.css" rel="stylesheet" type="text/css" media="all" />
+   <script src="js/bootstrap.js" type="text/javascript"></script>
+   <script src="js/jquery.js" type="text/javascript"></script>
+   <script src="js/sb-admin-2.js" type="text/javascript"></script>
+<title> EXEMPLE CODEIGNITER</title>
+</head>
+<body>
+    <?php $this->load->view('index'); ?>	
+    <h2 align="center"></h2>
+  <table border="1" cellspacing="0" align="center"  color="red">
+        <thead>
+            <th><lebel class="label label-primary">id_menu</th>
+            <th><lebel class="label label-primary">nom_menu</th>
+            <th><lebel class="label label-primary">Action</th>
+         </thead>
+
+       
+<tbody>
+	<?php
+        $i=1;
+        foreach ($row as $t) {
+
+        	echo "<tr>
+        	          <td>$i</td>
+        	          <td>$t->nom_menu</td>
+        	           <td><a href='".site_url('menu/edit/')."/$t->id_menu' onClick='return confirm(' vous voulez vraiment supprimer <?php echo $t->id_menu; ?>?')> <span class='glyphicon glyphicon-pencil' aria-hidden='true'></span></a>
+        	          <a href='".site_url('menu/delete/')."/$t->id_menu'><h4 button class='btn btn-danger btn-circle btn-lg' type='button'></h4> delete</a></td>
+        	        </tr>";
+
+        	          $i++;
+               }
+
+    ?>  
+</tbody>  
+</body>
+<id="imprimer">
+ <center> <a href="<?php echo base_url('recherche/index'); ?>"><input class="btn btn-info" type="submit" name="imprimer" value="rechercher"></input></a>
+</center>
+</html>
